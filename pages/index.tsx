@@ -2,10 +2,13 @@ import type { NextPage } from "next";
 import { AppName, Button, Input } from "../components";
 import { BiUser, BiLockAlt } from "react-icons/bi";
 import React, { FormEvent } from "react";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  const router = useRouter();
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    router.push("/notes");
   };
 
   return (
