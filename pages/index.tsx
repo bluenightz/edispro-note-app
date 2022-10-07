@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/store";
 import { setCredential } from "../store/credentialSlice";
 import { NextPageWithLayout } from "../interfaces";
 import Layout from "../components/Layout";
+import useSWR from "swr";
 
 type SignInResponse = {
   credential: User;
