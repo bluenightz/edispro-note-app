@@ -1,4 +1,4 @@
-import React, { FormEvent, ReactElement, useState } from "react";
+import React, { FormEvent, ReactElement, useEffect, useState } from "react";
 import { AppName, Button, Input } from "../components";
 import { BiUser, BiLockAlt } from "react-icons/bi";
 import { useRouter } from "next/router";
@@ -6,7 +6,7 @@ import { Axios } from "../axios";
 import { AxiosError } from "axios";
 import { FirebaseError } from "firebase/app";
 import { User } from "firebase/auth";
-import { useAppDispatch, useAppSelector } from "../hooks/store";
+import { useAppDispatch } from "../hooks/store";
 import { setCredential } from "../store/credentialSlice";
 import { NextPageWithLayout } from "../interfaces";
 import Layout from "../components/Layout";
@@ -16,13 +16,18 @@ type SignInResponse = {
   credential: User;
 };
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const Home: NextPageWithLayout = () => {
-  const { credential } = useAppSelector((selector) => selector.credential);
+  const [email, setEmail] = useState("chattapon.uthum@gmail.com");
+  const { data } = useSWR("/api/auth", fetcher);
   const dispatch = useAppDispatch();
   const [errors, setErrors] = useState<string | null>(null);
   const router = useRouter();
 
-  if (credential) router.push("/notes");
+  useEffect(() => {
+    if (data?.credential) router.push("/notes");
+  }, [data, router]);
 
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,7 +57,14 @@ const Home: NextPageWithLayout = () => {
         Note your important note.
       </AppName>
       <form className="w-full max-w-md space-y-5" onSubmit={handleOnSubmit}>
-        <Input Icon={BiUser} name="email" id="email" placeholder="email" />
+        <Input
+          Icon={BiUser}
+          name="email"
+          id="email"
+          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
         <Input type="password" Icon={BiLockAlt} name="password" id="password" />
         <div className="text-right">
           <Button type="submit">Sign in</Button>
