@@ -8,7 +8,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const Layout = ({
+const LayoutAuth = ({
   children,
 }: DetailedHTMLProps<AllHTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
   const { data } = useSWR("/api/auth", fetcher);
@@ -42,4 +42,4 @@ const Layout = ({
   );
 };
 
-export default Layout;
+export default LayoutAuth;

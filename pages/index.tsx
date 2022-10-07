@@ -1,20 +1,21 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, ReactElement, useState } from "react";
 import { AppName, Button, Input } from "../components";
 import { BiUser, BiLockAlt } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { Axios } from "../axios";
 import { AxiosError } from "axios";
-import type { NextPage } from "next";
 import { FirebaseError } from "firebase/app";
 import { User } from "firebase/auth";
 import { useAppDispatch, useAppSelector } from "../hooks/store";
 import { setCredential } from "../store/credentialSlice";
+import { NextPageWithLayout } from "../interfaces";
+import Layout from "../components/Layout";
 
 type SignInResponse = {
   credential: User;
 };
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const { credential } = useAppSelector((selector) => selector.credential);
   const dispatch = useAppDispatch();
   const [errors, setErrors] = useState<string | null>(null);
@@ -66,6 +67,10 @@ const Home: NextPage = () => {
       </form>
     </div>
   );
+};
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Home;
