@@ -5,7 +5,7 @@ pass: `111111`
 
 ต้นแบบ [Link](https://www.uplabs.com/posts/mobile-notes-app-ui-design-template-a6fc218c-d639-4366-b77f-d8ae7aa1f124)
 
-ลิงค์ [Link](https://edispro-note-app.vercel.app/)
+ลิงค์งาน [Link](https://edispro-note-app.vercel.app/)
 
 Github [Link](https://github.com/bluenightz/edispro-note-app/tree/main)
 
