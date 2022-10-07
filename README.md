@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# รายละเอียดโปรเจ็ค
 
-## Getting Started
+user: `chattapon.uthum@gmail.com`
+pass: `111111`
 
-First, run the development server:
+ต้นแบบ [Link](https://www.uplabs.com/posts/mobile-notes-app-ui-design-template-a6fc218c-d639-4366-b77f-d8ae7aa1f124)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+ลิงค์ [Link](https://edispro-note-app.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Github [Link](https://github.com/bluenightz/edispro-note-app/tree/main)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Stack
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- next.js
+- tailwindcss
+- firebase
+- redux-toolkit
+- vercel (hosting)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## แนวทางที่ใช้ในการทำ Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ใช้เป็น firebase ในการเก็บ user แล้วใช้ layout template ที่ต่างกันระหว่างหน้าที่ต้องล็อคอินก่อนใช้งานแล้วเก็บ user ไว้ใน store
