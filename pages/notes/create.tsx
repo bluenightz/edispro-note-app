@@ -8,10 +8,22 @@ const Create = () => {
   const router = useRouter();
   const { notes } = useAppSelector((selector) => selector.notes);
   const dispatch = useAppDispatch();
+
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const [title, description, detail] = Array.from(formData.values());
+    const formValues = Array.from(formData.values());
+    const [title, description, detail] = formValues;
+
+    const hasErrors = formValues.some(
+      (value) => value.toString().trim() === ""
+    );
+
+    if (hasErrors) {
+      alert("Please fill your information before submitting.");
+      return;
+    }
+
     dispatch(
       addNote({
         id: String(notes.length + 1),
@@ -28,17 +40,23 @@ const Create = () => {
       <AppName className="flex items-center space-x-3" backButton>
         <span>Create Note</span>
       </AppName>
-      <form className="text-brand-gray-900 space-y-4" onSubmit={handleOnSubmit}>
+      <form className="space-y-4 text-brand-gray-900" onSubmit={handleOnSubmit}>
         <div className="space-y-1">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">
+            Title: <span className="text-xs text-red-500">*</span>
+          </label>
           <Input id="title" name="title" />
         </div>
         <div className="space-y-1">
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">
+            Description: <span className="text-xs text-red-500">*</span>
+          </label>
           <Input id="description" name="description" />
         </div>
         <div className="space-y-1">
-          <label htmlFor="detail">Detail:</label>
+          <label htmlFor="detail">
+            Detail: <span className="text-xs text-red-500">*</span>
+          </label>
           <TextArea id="detail" name="detail" />
         </div>
         <div className="text-right">

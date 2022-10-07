@@ -1,12 +1,9 @@
-import { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import { BiTrash } from "react-icons/bi";
 import { AppName } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { deleteNote } from "../../store/notesSlice";
-
-type NotesDetailPageProps = {} & NextPage;
 
 const NoteDetail = () => {
   const router = useRouter();
@@ -29,7 +26,7 @@ const NoteDetail = () => {
         <>
           <AppName className="flex items-center space-x-3" backButton>
             <span className="flex-1 text-left">{note.title}</span>
-            <div className="basis-20 text-right text-brand-gray-500">
+            <div className="text-right basis-20 text-brand-gray-500">
               <BiTrash
                 className="inline-block cursor-pointer"
                 onClick={handleClick}
