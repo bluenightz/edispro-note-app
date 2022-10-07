@@ -21,7 +21,9 @@ const Posts = () => {
           onClick={handleOnClick}
         />
       </AppName>
-      <SearchBar />
+      <div className="md:max-w-lg md:mx-auto">
+        <SearchBar />
+      </div>
       <NoteList notes={notes} />
     </div>
   );

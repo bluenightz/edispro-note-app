@@ -46,11 +46,11 @@ const Home: NextPageWithLayout = () => {
   };
 
   return (
-    <div className="p-5 space-y-5">
+    <div className="flex flex-col items-center justify-center p-5 space-y-10 min-h-[100vh]">
       <AppName className="font-bold text-brand-gray-900">
         Note your important note.
       </AppName>
-      <form className="space-y-5" onSubmit={handleOnSubmit}>
+      <form className="w-full max-w-md space-y-5" onSubmit={handleOnSubmit}>
         <Input Icon={BiUser} name="email" id="email" placeholder="email" />
         <Input type="password" Icon={BiLockAlt} name="password" id="password" />
         <div className="text-right">

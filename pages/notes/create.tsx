@@ -40,7 +40,10 @@ const Create = () => {
       <AppName className="flex items-center space-x-3" backButton>
         <span>Create Note</span>
       </AppName>
-      <form className="space-y-4 text-brand-gray-900" onSubmit={handleOnSubmit}>
+      <form
+        className="space-y-4 lg:max-w-xl lg:mx-auto text-brand-gray-900"
+        onSubmit={handleOnSubmit}
+      >
         <div className="space-y-1">
           <label htmlFor="title">
             Title: <span className="text-xs text-red-500">*</span>

@@ -33,7 +33,9 @@ const NoteDetail = () => {
               />
             </div>
           </AppName>
-          <div className="text-gray-500">{note.detail}</div>
+          <div className="text-gray-500 lg:max-w-5xl lg:mx-auto">
+            {note.detail}
+          </div>
         </>
       )}
     </div>
