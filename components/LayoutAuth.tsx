@@ -6,12 +6,10 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import BeatLoader from "react-spinners/BeatLoader";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const LayoutAuth = ({
   children,
 }: DetailedHTMLProps<AllHTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
-  const { data } = useSWR("/api/auth", fetcher);
+  const { data } = useSWR("/api/auth");
   const { credential } = useAppSelector((selector) => selector.credential);
   const dispatch = useAppDispatch();
   const router = useRouter();

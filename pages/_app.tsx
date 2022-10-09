@@ -4,6 +4,8 @@ import { store } from "../store";
 import { Provider } from "react-redux";
 import LayoutAuth from "../components/LayoutAuth";
 import { NextPageWithLayout } from "../interfaces";
+import { SWRConfig } from "swr";
+import { config } from "../swr/config";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -14,7 +16,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     Component.getLayout ?? ((page) => <LayoutAuth>{page}</LayoutAuth>);
 
   return (
-    <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
+    <SWRConfig value={config}>
+      <Provider store={store}>
+        {getLayout(<Component {...pageProps} />)}
+      </Provider>
+    </SWRConfig>
   );
 }
 

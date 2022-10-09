@@ -16,11 +16,9 @@ type SignInResponse = {
   credential: User;
 };
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const Home: NextPageWithLayout = () => {
   const [email, setEmail] = useState("chattapon.uthum@gmail.com");
-  const { data } = useSWR("/api/auth", fetcher);
+  const { data } = useSWR("/api/auth");
   const dispatch = useAppDispatch();
   const [errors, setErrors] = useState<string | null>(null);
   const router = useRouter();
