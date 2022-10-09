@@ -8,7 +8,7 @@ type NoteListProps = {
 
 const EmptyNotes = () => {
   return (
-    <div className="col-span-2 py-5 text-center lg:col-span-4 text-brand-gray-500">
+    <div className="col-span-2 py-5 text-center sm:col-span-3 lg:col-span-4 text-brand-gray-500">
       Data Not Found. <br />
       Please{" "}
       <Link href="/notes/create">
